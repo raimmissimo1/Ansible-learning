@@ -14,7 +14,7 @@
 
 - name: Read-write git checkout from github
   ansible.builtin.git:
-    repo: https://github.com/rahulwagh/python-example.git
+    repo: https://github.com/raimmissimo1/Rock-Scissor-Paper-game.git
     dest: ./basic-http-server
 
 - name: Run the hugo command locally
@@ -26,4 +26,4 @@
     msg: "{{ localPath.stdout }}"
 
 - name: Execute the script
-  command: nohup python3 /home/rahulwagh/basic-http-server/basic-http-server/app.py &
+  shell: nohup python3 /home/raim2007/basic-http-server/script1.py &
