@@ -1,5 +1,10 @@
-## How to run the playbook to connect on Google Cloud VM
 
 ```
+## Просто запустить
 ansible-playbook --inventory inventory/vm-setup-playbook/hosts vm-setup-playbook.yml 
+
+## Запустить с правами root (запросить пароль)
+ansible-playbook --inventory inventory/vm-setup-playbook/hosts vm-setup-playbook.yml -K 
+
+
 ```
