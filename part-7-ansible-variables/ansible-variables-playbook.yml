@@ -2,7 +2,7 @@
 - name: Example Ansible playbook for Handlers
   hosts: all
   become: yes
-  remote_user: ubuntu
+  remote_user: raim2007 
   roles:
     - custom-role
 
@@ -11,7 +11,7 @@
     main_playbook_variable: "foo"
 
     # 2. Boolean Variable
-    is_enabled: false
+    is_enabled: true 
 
     # 3. List Variable
     fruits:
@@ -37,9 +37,6 @@
           - apple
           - orange
 
-  # 6. Variable from the my-vars.yml
-  vars_files:
-    - my-vars.yml
 
   tasks:
     - name: String Variable from - main_playbook_variable
@@ -84,21 +81,6 @@
     - name: Using Jinja 2 filters on variables
       debug:
         var: fruit_prices.keys() | list | map('upper') | list
-
-    # Accessing variable inside playbook from my-vars.yml
-    - name: Get the value of variable from my-vars.yml
-      debug:
-        var: vars_from_my_vars_yml
-
-    #Defining and accessing the variable at RunTime
-    - name: Get the value from run time
-      debug:
-        var: version
-
-    #Defining and accessing the variable at RunTime
-    - name: Print the value of variable when var file is passed at run time
-      debug:
-        var: other_variable
 
 
 
