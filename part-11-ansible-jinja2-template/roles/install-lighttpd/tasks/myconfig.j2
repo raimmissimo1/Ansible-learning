@@ -13,10 +13,6 @@ server.username             = "www-data"
 server.groupname            = "www-data"
 server.port                 = {{ server_port }}
 
-# strict parsing and normalization of URL for consistency and security
-# https://redmine.lighttpd.net/projects/lighttpd/wiki/Server_http-parseoptsDetails
-# (might need to explicitly set "url-path-2f-decode" = "disable"
-#  if a specific application is encoding URLs inside url-path)
 server.http-parseopts = (
   "header-strict"           => "enable",# default
   "host-strict"             => "enable",# default
@@ -38,13 +34,9 @@ static-file.exclude-extensions = ( ".php", ".pl", ".fcgi" )
 compress.cache-dir          = "/var/cache/lighttpd/compress/"
 compress.filetype           = ( "application/javascript", "text/css", "text/html", "text/plain" )
 
-# default listening port for IPv6 falls back to the IPv4 port
-## Use ipv6 if available
-#include_shell "/usr/share/lighttpd/use-ipv6.pl " + server.port
 include_shell "/usr/share/lighttpd/create-mime.conf.pl"
 include "/etc/lighttpd/conf-enabled/*.conf"
 
-#server.compat-module-load   = "disable"
 server.modules += (
         "mod_compress",
         "mod_dirlisting",
