@@ -102,5 +102,3 @@ b. Run the playbook
 ```bash
 ansible-playbook --inventory inventory/ansible-vault/hosts ansible-vault-playbook.yml -e @group_vars/my_vault_with_bas64_pass.yml
 ```
-
-Reference - https://gist.github.com/xoyabc/4ab27d181808affa6450ee481e0ff9b2
